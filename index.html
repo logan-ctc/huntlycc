@@ -49,8 +49,7 @@
   #notice{display:none;background:var(--orange);color:#fff;border-top:3px solid rgba(255,255,255,.35);border-bottom:3px solid rgba(0,0,0,.06)}
   #notice.show{display:block}
   .notice-inner{display:flex;align-items:center;justify-content:center;gap:18px 24px;padding:30px 24px;flex-wrap:wrap;text-align:center}
-  .notice-ico{flex:none;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}
-  .notice-ico svg{width:26px;height:26px;color:#fff}
+  .notice-ico{flex:none;width:54px;height:auto;filter:drop-shadow(0 4px 8px rgba(0,0,0,.12))}
   .notice-msg{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(1.2rem,2.3vw,1.7rem);line-height:1.28;letter-spacing:-.01em;max-width:62ch;margin:0}
   .notice-btn{flex:none;background:#fff;color:var(--orange-deep);padding:12px 24px;border-radius:999px;font-weight:700;font-size:.98rem;text-decoration:none;white-space:nowrap;transition:transform .15s,box-shadow .15s;box-shadow:0 12px 24px -12px rgba(0,0,0,.45)}
   .notice-btn:hover{transform:translateY(-2px);box-shadow:0 16px 28px -12px rgba(0,0,0,.5)}
@@ -226,6 +225,15 @@
 </header>
 <div class="nav-overlay" id="navOverlay"></div>
 
+<!-- NOTICE BANNER (controlled by config.js) — shown right below the menu, above the hero -->
+<aside id="notice" aria-label="Important announcement">
+  <div class="wrap notice-inner">
+    <img class="notice-ico" src="images/megaphone-white.png" alt="" aria-hidden="true" />
+    <p class="notice-msg" id="notice-msg"></p>
+    <a class="notice-btn" id="notice-btn" href="#contact"></a>
+  </div>
+</aside>
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="wrap">
@@ -249,17 +257,6 @@
     <div class="hero-art"><img src="images/icon.webp" alt="Three hands forming a cross — the Huntly Community Church symbol" /></div>
   </div>
 </section>
-
-<!-- NOTICE BANNER (controlled by config.js) — bold band shown directly below the hero -->
-<aside id="notice" aria-label="Important announcement">
-  <div class="wrap notice-inner">
-    <span class="notice-ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M14 8a4 4 0 0 1 0 8M16.5 5.5a8 8 0 0 1 0 13"/></svg>
-    </span>
-    <p class="notice-msg" id="notice-msg"></p>
-    <a class="notice-btn" id="notice-btn" href="#contact"></a>
-  </div>
-</aside>
 
 <!-- JESUS -->
 <section class="section" id="jesus">
@@ -359,7 +356,7 @@
         <div class="info-card">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Find us</h3>
           <p>629 Midland Hwy, Huntly VIC 3551</p>
-          <a class="fb-link" data-fb hidden href="https://www.facebook.com/HuntlyCC" target="_blank" rel="noopener">
+          <a class="fb-link" data-fb hidden href="#" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8v8.44C19.61 23.08 24 18.09 24 12.07z"/></svg>
             Follow us on Facebook
           </a>
