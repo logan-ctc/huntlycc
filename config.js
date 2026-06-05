@@ -22,7 +22,7 @@ window.SITE_CONFIG = {
      ---------------------------------------------------------- */
   notice: {
     enabled: true,
-    message: "Special Easter Service — Sunday 5 April, 9:00am @ 629 Midland Hwy, Huntly. All welcome!",
+    message: "Joint Gathering! — Sunday 5 April, 9:00am @ 629 Midland Hwy, Huntly. All welcome!",
     buttonText: "Questions? Contact us",
     buttonLink: "#contact"
   },
@@ -57,7 +57,7 @@ window.SITE_CONFIG = {
      Example: "https://www.facebook.com/YourChurchPage"
      ---------------------------------------------------------- */
   social: {
-    facebookUrl: ""
+    facebookUrl: "https://www.facebook.com/HuntlyCC"
   }
 
 };
