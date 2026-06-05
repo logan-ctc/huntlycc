@@ -60,7 +60,7 @@ the right inbox (check spam the first time).
 3. Repo **Settings → Pages → Build and deployment**:
    - Source: **Deploy from a branch**
    - Branch: **main** → **/(root)** → Save.
-4. After a minute the site is live at `https://YOUR-USERNAME.github.io/huntlycc/`.
+4. After a minute the site is live at `https://logan-ctc.github.io/huntlycc/`.
 
 ### Pointing huntlycc.org.au at it
 
