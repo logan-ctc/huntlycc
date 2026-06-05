@@ -22,7 +22,7 @@ window.SITE_CONFIG = {
      ---------------------------------------------------------- */
   notice: {
     enabled: true,
-    message: "Joint Gathering! — Sunday 5 April, 9:00am @ 629 Midland Hwy, Huntly. All welcome!",
+    message: "Joint Gathering! — Sunday 7 June, 3:00am @ Pastor Jono's House. All welcome!",
     buttonText: "Questions? Contact us",
     buttonLink: "#contact"
   },
