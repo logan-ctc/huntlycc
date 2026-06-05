@@ -1,5 +1,7 @@
 # Huntly Community Church — Website
 
+dev site: https://logan-ctc.github.io/huntlycc/
+
 A simple, fast, one-page website. No WordPress, no database, no monthly fees —
 just static files hosted free on GitHub Pages.
 
@@ -40,27 +42,20 @@ You can do this right on GitHub: open `config.js` → pencil icon → edit →
 
 ## 2. The contact form
 
-Already connected. It uses **Web3Forms**, and your access key is in `config.js`:
-
-```js
-form: { web3formsAccessKey: "843851b1-43f3-4fc9-88bb-3c1e666de6f0" }
-```
+Uses **Web3Forms**, and your access key is in `config.js`:
 
 Submissions are emailed to the address that key is registered to — nothing is stored
 on the site. Fields: **full name** (required), **phone**, **email**, **message**
 (at least a phone or an email is required so you can reply).
 
-Tip: send yourself one test message after it's live to confirm the emails arrive in
-the right inbox (check spam the first time).
-
 ---
 
 ## 3. Facebook page
 
-Open **`config.js`** and paste your Facebook page address:
+Open **`config.js`** and paste your Facebook page address if it ever changes (not sure why it would):
 
 ```js
-social: { facebookUrl: "https://www.facebook.com/YourChurchPage" }
+social: { facebookUrl: "https://www.facebook.com/HuntlyCC" }
 ```
 
 Once set, a Facebook icon appears automatically next to **Find us** in the
@@ -76,7 +71,7 @@ Contact section and in the footer. Leave it as `""` to hide the icon.
 3. Repo **Settings → Pages → Build and deployment**:
    - Source: **Deploy from a branch**
    - Branch: **main** → **/(root)** → Save.
-4. After a minute the site is live at `https://YOUR-USERNAME.github.io/huntlycc/`.
+4. After a minute the site is live at `https://logan-ctc.github.io/huntlycc/`.
 
 ### Pointing huntlycc.org.au at it
 
