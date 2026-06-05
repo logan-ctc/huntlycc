@@ -37,22 +37,31 @@
     --maxw:1160px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:98px}
   body{font-family:"Hanken Grotesk",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.01em}
   a{color:inherit}
-  section{scroll-margin-top:84px}
+  section{scroll-margin-top:98px}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
   img{max-width:100%;display:block}
 
-  /* NOTICE */
-  #notice{background:var(--orange);color:#fff;font-weight:600;display:none}
+  /* NOTICE BAND (below hero) */
+  #notice{display:none;background:var(--orange);color:#fff;border-top:3px solid rgba(255,255,255,.35);border-bottom:3px solid rgba(0,0,0,.06)}
   #notice.show{display:block}
-  .notice-inner{max-width:var(--maxw);margin:0 auto;padding:11px 48px 11px 24px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center;position:relative;font-size:.95rem}
-  .notice-btn{background:#fff;color:var(--orange-deep);padding:5px 15px;border-radius:999px;font-size:.82rem;font-weight:700;text-decoration:none;white-space:nowrap;transition:transform .15s}
-  .notice-btn:hover{transform:translateY(-1px)}
-  .notice-close{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;opacity:.85;padding:4px}
-  .notice-close:hover{opacity:1}
+  .notice-inner{display:flex;align-items:center;justify-content:center;gap:18px 24px;padding:30px 24px;flex-wrap:wrap;text-align:center}
+  .notice-ico{flex:none;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}
+  .notice-ico svg{width:26px;height:26px;color:#fff}
+  .notice-msg{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(1.2rem,2.3vw,1.7rem);line-height:1.28;letter-spacing:-.01em;max-width:62ch;margin:0}
+  .notice-btn{flex:none;background:#fff;color:var(--orange-deep);padding:12px 24px;border-radius:999px;font-weight:700;font-size:.98rem;text-decoration:none;white-space:nowrap;transition:transform .15s,box-shadow .15s;box-shadow:0 12px 24px -12px rgba(0,0,0,.45)}
+  .notice-btn:hover{transform:translateY(-2px);box-shadow:0 16px 28px -12px rgba(0,0,0,.5)}
+
+  /* FACEBOOK LINKS */
+  .fb-link{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--teal-deep);font-weight:700;font-size:.95rem;text-decoration:none}
+  .fb-link svg{width:18px;height:18px}
+  .fb-link:hover{text-decoration:underline}
+  .fb-foot{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;transition:.15s}
+  .fb-foot:hover{background:var(--teal);transform:translateY(-2px)}
+  .fb-foot svg{width:20px;height:20px}
 
   /* HEADER */
   header{position:sticky;top:0;z-index:100;background:rgba(244,248,248,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
@@ -80,11 +89,11 @@
   /* HERO */
   .hero{position:relative;overflow:hidden;padding:84px 0 92px}
   .hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(820px 460px at 88% 6%,rgba(17,165,151,.16),transparent 60%),radial-gradient(720px 520px at 4% 104%,rgba(224,123,44,.14),transparent 58%)}
-  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
-  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:28px}.hero{padding:54px 0 64px}}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.32fr .68fr;gap:44px;align-items:center}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:26px}.hero{padding:54px 0 64px}}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:22px}
   .eyebrow::before{content:"";width:30px;height:2px;background:var(--orange);border-radius:2px}
-  .hero h1{font-size:clamp(2.4rem,5.4vw,4.3rem);color:var(--slate);max-width:15ch;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.05rem,4.4vw,3.6rem);color:var(--slate);max-width:20ch;margin-bottom:22px}
   .hero h1 em{font-style:italic;color:var(--teal-deep)}
   .hero .lead{font-size:clamp(1.05rem,1.7vw,1.25rem);color:var(--ink-soft);max-width:44ch;margin-bottom:20px}
   .service-chip{display:inline-flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:600;font-size:.95rem;margin-bottom:34px;box-shadow:var(--shadow)}
@@ -195,21 +204,12 @@
 </head>
 <body>
 
-<!-- NOTICE BANNER (controlled by config.js) -->
-<div id="notice" role="region" aria-label="Announcement">
-  <div class="notice-inner">
-    <span class="msg" id="notice-msg"></span>
-    <a class="notice-btn" id="notice-btn" href="#contact"></a>
-    <button class="notice-close" id="notice-close" aria-label="Dismiss notice">&times;</button>
-  </div>
-</div>
-
 <!-- HEADER -->
 <header>
   <nav class="nav">
     <a href="#home" class="brand" aria-label="Huntly Community Church home">
       <img src="images/icon.webp" alt="Huntly Community Church logo" />
-      <span class="brand-text">Huntly Community Church<small>Baptist · Huntly VIC</small></span>
+      <span class="brand-text">Huntly Community Church</span>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
@@ -231,8 +231,8 @@
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow">Welcome home</span>
-      <h1>A church in the <em>heart</em> of the community.</h1>
-      <p class="lead">With the community on its heart. Wherever you're at, there's a place for you here.</p>
+      <h1>A church in the <em>heart</em> of the community, with the community on its <em>heart</em>.</h1>
+      <p class="lead">Wherever you're at, there's a place for you here.</p>
       <div class="service-chip">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
         <span>Every Sunday <b>10:30am</b> &nbsp;·&nbsp; 629 Midland Hwy, Huntly</span>
@@ -241,7 +241,7 @@
         <a class="btn btn-primary" href="#contact">Contact us
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a class="btn btn-outline" href="https://sermons.logos.com/profile/hcc-hl?sort=datePresented%3Adesc%2CdateSubmitted%3Adesc" target="_blank" rel="noopener">Listen to sermons
+        <a class="btn btn-outline" href="https://sermons.logos.com/profile/hcc-hl?sort=datePresented%3Adesc%2CdateSubmitted%3Adesc" target="_blank" rel="noopener">Hear the latest message
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
       </div>
@@ -249,6 +249,17 @@
     <div class="hero-art"><img src="images/icon.webp" alt="Three hands forming a cross — the Huntly Community Church symbol" /></div>
   </div>
 </section>
+
+<!-- NOTICE BANNER (controlled by config.js) — bold band shown directly below the hero -->
+<aside id="notice" aria-label="Important announcement">
+  <div class="wrap notice-inner">
+    <span class="notice-ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l4 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M14 8a4 4 0 0 1 0 8M16.5 5.5a8 8 0 0 1 0 13"/></svg>
+    </span>
+    <p class="notice-msg" id="notice-msg"></p>
+    <a class="notice-btn" id="notice-btn" href="#contact"></a>
+  </div>
+</aside>
 
 <!-- JESUS -->
 <section class="section" id="jesus">
@@ -348,6 +359,10 @@
         <div class="info-card">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Find us</h3>
           <p>629 Midland Hwy, Huntly VIC 3551</p>
+          <a class="fb-link" data-fb hidden href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8v8.44C19.61 23.08 24 18.09 24 12.07z"/></svg>
+            Follow us on Facebook
+          </a>
         </div>
         <div class="info-card">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Gather with us</h3>
@@ -368,6 +383,9 @@
       <div class="footer-brand">
         <img src="images/logo-white.png" alt="Huntly Community Church" />
         <p>A church in the heart of the community, with the community on its heart. Meeting each Sunday at 10:30am.</p>
+        <a class="fb-foot" data-fb hidden href="#" target="_blank" rel="noopener" aria-label="Follow us on Facebook" style="margin-top:16px">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8v8.44C19.61 23.08 24 18.09 24 12.07z"/></svg>
+        </a>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
@@ -405,7 +423,12 @@
     if(notice.buttonText){ nbtn.textContent = notice.buttonText; nbtn.setAttribute("href", notice.buttonLink || "#contact"); }
     else { nbtn.style.display = "none"; }
     bar.classList.add("show");
-    document.getElementById("notice-close").addEventListener("click", function(){ bar.classList.remove("show"); });
+  }
+
+  /* FACEBOOK (shows only when a URL is set in config.js) */
+  var fb = (cfg.social && cfg.social.facebookUrl) || "";
+  if(fb){
+    document.querySelectorAll("[data-fb]").forEach(function(a){ a.setAttribute("href", fb); a.removeAttribute("hidden"); });
   }
 
   /* MOBILE NAV */

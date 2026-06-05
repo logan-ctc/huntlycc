@@ -21,7 +21,7 @@ window.SITE_CONFIG = {
                  Leave buttonText as "" to hide the button.
      ---------------------------------------------------------- */
   notice: {
-    enabled: false,
+    enabled: true,
     message: "Special Easter Service — Sunday 5 April, 9:00am @ 629 Midland Hwy, Huntly. All welcome!",
     buttonText: "Questions? Contact us",
     buttonLink: "#contact"
@@ -44,6 +44,20 @@ window.SITE_CONFIG = {
      ---------------------------------------------------------- */
   form: {
     web3formsAccessKey: "843851b1-43f3-4fc9-88bb-3c1e666de6f0"
+  },
+
+  /* ----------------------------------------------------------
+     3) SOCIAL LINKS
+     ----------------------------------------------------------
+     Paste your Facebook page address between the quotes.
+     The Facebook icon (next to "Find us" and in the footer)
+     appears automatically once a link is set. Leave it as ""
+     to hide the icon.
+
+     Example: "https://www.facebook.com/YourChurchPage"
+     ---------------------------------------------------------- */
+  social: {
+    facebookUrl: ""
   }
 
 };

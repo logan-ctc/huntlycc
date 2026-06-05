@@ -1,8 +1,5 @@
 # Huntly Community Church — Website
 
-<a href="https://logan-ctc.github.io/huntlycc/" target="_blank">Visit Demo Website</a>
-
-
 A simple, fast, one-page website. No WordPress, no database, no monthly fees —
 just static files hosted free on GitHub Pages.
 
@@ -20,6 +17,9 @@ breaks when you move the domain.
 ---
 
 ## 1. The notice banner (special services)
+
+This is the bold orange band that appears just below the welcome section —
+designed to be impossible to miss when a service is at a different time or place.
 
 Open **`config.js`** and edit the `notice` block:
 
@@ -55,7 +55,20 @@ the right inbox (check spam the first time).
 
 ---
 
-## 3. Putting it online (GitHub Pages)
+## 3. Facebook page
+
+Open **`config.js`** and paste your Facebook page address:
+
+```js
+social: { facebookUrl: "https://www.facebook.com/YourChurchPage" }
+```
+
+Once set, a Facebook icon appears automatically next to **Find us** in the
+Contact section and in the footer. Leave it as `""` to hide the icon.
+
+---
+
+## 4. Putting it online (GitHub Pages)
 
 1. Create a new repository on GitHub (e.g. `huntlycc`).
 2. Upload **all** files, keeping the structure (`index.html`, `config.js` at the top
@@ -63,7 +76,7 @@ the right inbox (check spam the first time).
 3. Repo **Settings → Pages → Build and deployment**:
    - Source: **Deploy from a branch**
    - Branch: **main** → **/(root)** → Save.
-4. After a minute the site is live at `https://logan-ctc.github.io/huntlycc/`.
+4. After a minute the site is live at `https://YOUR-USERNAME.github.io/huntlycc/`.
 
 ### Pointing huntlycc.org.au at it
 
