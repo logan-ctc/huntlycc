@@ -1,5 +1,6 @@
 # Huntly Community Church — Website
 
+demo: https://logan-ctc.github.io/huntlycc/
 A simple, fast, one-page website. No WordPress, no database, no monthly fees —
 just static files hosted free on GitHub Pages.
 
