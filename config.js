@@ -21,7 +21,7 @@ window.SITE_CONFIG = {
                  Leave buttonText as "" to hide the button.
      ---------------------------------------------------------- */
   notice: {
-    enabled: false,
+    enabled: true,
     message: "Joint Gathering! — Sunday 5 April, 9:00am @ 629 Midland Hwy, Huntly. All welcome!",
     buttonText: "Questions? Contact us",
     buttonLink: "#contact"
