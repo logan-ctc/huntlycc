@@ -1,6 +1,6 @@
 # Huntly Community Church — Website
 
-<a href="[https://example.com](https://logan-ctc.github.io/huntlycc/)" target="_blank">Visit Demo Website</a>
+<a href="https://logan-ctc.github.io/huntlycc/" target="_blank">Visit Demo Website</a>
 
 
 A simple, fast, one-page website. No WordPress, no database, no monthly fees —
